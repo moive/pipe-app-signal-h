@@ -64,3 +64,12 @@
     <div class="stat-desc">{{ customDate() }}</div>
   </div>
 </div>
+<div class="divider"></div>
+<div class="flex gap-5 mb-10">
+  <h2 class="text-2xl font-bold">
+    Locale actual: <span class="badge badge-secondary">{{ currentLocale() }}</span>
+  </h2>
+  <button (click)="changeLocale('fr')" class="btn btn-primary uppercase">Passer au français</button>
+  <button (click)="changeLocale('en')" class="btn btn-primary uppercase">Change to english</button>
+  <button (click)="changeLocale('es')" class="btn btn-primary uppercase">Chambiar a español</button>
+</div>

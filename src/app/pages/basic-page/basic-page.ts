@@ -1,5 +1,14 @@
 import { DatePipe, LowerCasePipe, TitleCasePipe, UpperCasePipe } from '@angular/common';
-import { ChangeDetectionStrategy, Component, effect, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  effect,
+  inject,
+  LOCALE_ID,
+  signal,
+} from '@angular/core';
+import { LocaleService } from '../../services';
+import { Ilocale } from '../../services/locale.service';
 
 @Component({
   selector: 'app-basic-page',
@@ -8,6 +17,9 @@ import { ChangeDetectionStrategy, Component, effect, signal } from '@angular/cor
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class BasicPage {
+  localeService = inject(LocaleService);
+  currentLocale = signal(inject(LOCALE_ID));
+
   nameLower = signal('Moises');
   nameUpper = signal('MOISES');
   fullName = signal('mOiSeS vELAsQUez');
@@ -23,4 +35,9 @@ export default class BasicPage {
       clearInterval(interval);
     });
   });
+
+  changeLocale(locale: Ilocale) {
+    console.log({ locale });
+    this.localeService.changeLocale(locale);
+  }
 }
