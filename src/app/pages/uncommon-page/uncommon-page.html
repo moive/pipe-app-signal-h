@@ -5,7 +5,10 @@
 
 <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
   <app-card title="i18nSelectPipe">
-    <p>Hello world from children</p>
-    <button class="btn btn-primary">Click me!</button>
+    <p>
+      {{ client().gender | i18nSelect: greetingMap }} {{ client().name }}, es un placer
+      {{ client().gender | i18nSelect: invitationMap }} a nuestro evento.
+    </p>
+    <button (click)="changeClient()" class="btn btn-primary">Click me!</button>
   </app-card>
 </div>
