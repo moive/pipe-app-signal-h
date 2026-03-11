@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { Card } from '../../components/card/card';
 import {
+  AsyncPipe,
   I18nPluralPipe,
   I18nSelectPipe,
   JsonPipe,
@@ -35,6 +36,7 @@ const client2 = {
     UpperCasePipe,
     KeyValuePipe,
     TitleCasePipe,
+    AsyncPipe,
   ],
   templateUrl: './uncommon-page.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -91,4 +93,13 @@ export default class UncommonPage {
     age: 44,
     address: 'Calle falsa 123',
   };
+
+  // Async Pipe
+  promiseValue: Promise<string> = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('We have data in the promise');
+      // reject('There was an error in the promise');
+      console.log('Promise finished');
+    }, 3500);
+  });
 }
