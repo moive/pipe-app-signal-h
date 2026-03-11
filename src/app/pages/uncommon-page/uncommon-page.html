@@ -63,5 +63,14 @@
     @if (promiseValue | async; as value) {
       <p class="text-primary">{{ value }}</p>
     }
+
+    <h3 class="text-xl">Observable</h3>
+    <p>{{ myObservabletimer | async }}</p>
+    @let value = myObservabletimer | async;
+    @if (value !== null) {
+      <p><b class="text-primary">Value:</b> {{ value }}</p>
+    } @else {
+      <p>Loading...</p>
+    }
   </app-card>
 </div>
