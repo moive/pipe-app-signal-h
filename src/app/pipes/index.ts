@@ -3,3 +3,4 @@ export { HeroColorPipe } from './hero-color.pipe';
 export { HeroCreatorPipe } from './hero-creator.pipe';
 export { HeroTextColorPipe } from './hero-text-color.pipe';
 export { ToggleCasePipe } from './toggle-case.pipe';
+export { HeroSortByPipe } from './hero-sort-by.pipe';
