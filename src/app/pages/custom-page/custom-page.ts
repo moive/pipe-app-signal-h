@@ -4,6 +4,7 @@ import {
   CanFlyPipe,
   HeroColorPipe,
   HeroCreatorPipe,
+  HeroFilterPipe,
   HeroSortByPipe,
   HeroTextColorPipe,
   ToggleCasePipe,
@@ -21,6 +22,7 @@ import { Hero } from '../../interfaces/hero.interface';
     TitleCasePipe,
     HeroCreatorPipe,
     HeroSortByPipe,
+    HeroFilterPipe,
   ],
   templateUrl: './custom-page.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -33,4 +35,6 @@ export default class CustomPage {
   heroes = signal(heroes);
 
   sortBy = signal<keyof Hero | null>(null);
+
+  searchQuery = signal('');
 }
