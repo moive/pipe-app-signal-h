@@ -15,7 +15,12 @@
 
 <div class="divider my-2"></div>
 <section class="my-2">
-  <h1>Filter by: XXX, sort by: {{ sortBy() }}</h1>
+  <h1>
+    Filter by: XXX
+    @if (sortBy()) {
+      <span>, sort by: {{ sortBy() | toggleCase }}</span>
+    }
+  </h1>
   <div class="flex gap-2 justify-end w-full">
     <button (click)="sortBy.set('name')" class="btn btn-primary">Name</button>
     <button (click)="sortBy.set('canFly')" class="btn btn-accent">Fly</button>
